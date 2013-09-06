@@ -1,0 +1,955 @@
+///////////////////////////////////////////////////////////////////
+// Stylesheet: TYPOGRAPHY
+//
+// colors
+// fonts & font embeds
+// setup vertical rhythm based on type here
+///////////////////////////////////////////////////////////////////
+
+
+//////////////////////
+// COLORS
+//
+// http://0to255.com/
+// for color names: ( standardization + lolz )
+// http://chir.ag/projects/name-that-color/
+//////////////////////
+
+$black:             #000; // duh.
+$white:             #fff; // FFF == 255,255,255
+
+$bones-pink:        #f01d4f; // a memorial for eddie.
+$fuchsia:           #ff00ff; // the fuchsia is N0W.
+
+//////////////////////
+// FONT FAMILIES
+//////////////////////
+
+$sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:              "Georgia", Cambria, Times New Roman, Times, serif; // ode to Miss Mallory
+
+
+//////////////////////
+// FONT EMBEDS
+//////////////////////
+
+// IN CASE OF EMERGENCY, BREAK COMMENTS
+// To embed your own fonts, [shudder] use this syntax and place your fonts inside the library/fonts folder.
+// For more information on embedding fonts, go to:
+// http://www.fontsquirrel.com/
+
+//@font-face {
+//    font-family: 'Font Name';
+//    src: url('../fonts/font-name.eot');
+//    src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/font-name.woff') format('woff'),
+//         url('../fonts/font-name.ttf') format('truetype'),
+//         url('../fonts/font-name.svg#font-name') format('svg');
+//    font-weight: normal;
+//    font-style: normal;
+//}
+
+
+// use the best ampersand
+// http://simplebits.com/notebook/2008/08/14/ampersands-2/
+
+span.amp {
+    font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
+    font-style: italic;
+}
+
+
+//////////////////////
+// FONT WEIGHTS - No&eacute;++
+//////////////////////
+
+$ultra-light:       100;
+$light:             200;
+$book:              300;
+$normal:            400; // i'm assuming this dbls as 'regular'
+$regular:           400; // lolol
+$medium:            500;
+$semi-bold:         600;
+$bold:              700;
+$extra-bold:        800;
+$ultra-bold:        900;
+$redonkulous-bold:  1000; // o rly? nope.
+
+
+//////////////////////
+// ROOT
+//////////////////////
+
+
+html {
+    font: {
+        family: $sans-serif;
+        size: $BASE-FONT-SIZE;
+        weight: $normal;
+    }
+    line-height: 1.8rem; // i'd better not see any em's in here;
+}
+
+body {
+}
+
+
+//////////////////////
+// LINKS
+//////////////////////
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+
+//////////////////////
+// SELECTION TEXT
+//////////////////////
+::-moz-selection,
+::selection {
+
+}
+
+//////////////////////
+// FOCUS ELEMENTS
+//////////////////////
+
+:focus {
+    outline-color: #badefa;
+}
+
+//////////////////////
+// TITLES & HEADLINES, HX TAGS
+//
+// What's with the classes? It's a great way to keep your CSS slim(er).
+// Instead of adding another selector to make a title look like an H1, you simply add the .h1 class to it.
+// ( i.e. <h5 class="h1"> ). Ah So easy. Plays nice w/ SEO and visual aesthetic.
+//////////////////////
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5,.h5 {
+    font-family: $sans-serif;
+    margin: 0 0 1rem;
+    a {}
+}
+
+
+h1, .h1 {
+    font-size: 1.875rem;
+}
+
+h2, .h2 {
+    font-size: 1.75rem;
+}
+
+h3, .h3 {
+    font-size: 1.5rem;
+}
+
+h4, .h4 {
+    font-size: 1.25rem;
+}
+
+h5, .h5 {
+    font-size: 1.125rem;
+}
+
+h6, .h6 {
+    font-size: 1.11rem;
+}
+
+h7, .h7 {
+    font-size: 1rem;
+}
+
+h8, .h8 {
+    font-size: 1rem;
+}
+
+h9, .h9 {
+    font-size: 1rem;
+}
+
+
+//////////////////////
+// HEADER
+//////////////////////
+
+#title-area {
+    text-align: center;
+}
+
+#title a {
+    font: {
+        family: $sans-serif;
+        size: 32px;
+        size: p2r(32px);
+        weight: $normal;
+    }
+    text-transform: uppercase;
+    text-align: center;
+    margin: 1rem 0;
+
+    a,
+    a:visited {
+        text-decoration: none;
+    }
+
+    .searchform {
+        text-align: center;
+    }
+}
+
+#description {
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+//////////////////////
+// NAVIGATION
+//////////////////////
+
+#nav {
+    ul {
+    }
+
+
+    li {
+
+        a {
+
+            padding: 0.8rem;
+
+            &:link,
+            &:active {}
+            &:visited,
+            &:hover {}
+        }
+
+        // sub-menus // lolz. i typed 'dub-menus'
+        ul {
+
+        }
+
+        li {
+
+            // sub-menu links
+            a {
+
+                &:link,
+                &:active {}
+                &:visited,
+                &:hover {}
+            }
+        }
+    }
+}
+
+
+//////////////////////
+// BREADCRUMBS
+//////////////////////
+
+.breadcrumb {}
+
+
+//////////////////////
+// POST INFO
+//////////////////////
+
+.post-info {
+    font-size: 1rem;
+    margin: 0;
+
+    .time {}
+    .vcard {}
+    .post-comments {}
+
+}
+
+.post-edit-link {}
+
+
+//////////////////////
+// DESCRIPTIONS
+//////////////////////
+
+.taxonomy-description {
+
+    h1 {}
+
+    p {}
+}
+
+.archive-page {
+
+    ul,
+    ol {
+        ul {}
+    }
+
+}
+
+
+//////////////////////
+// ENTRY CONTENT
+//////////////////////
+
+.entry-content {
+
+    p {
+        padding: 0 0 1rem;
+    }
+
+    // lists
+    ul,
+    ol,
+    table,
+    dl {}
+
+    ol {
+        margin: 0 0 0 2.6rem;
+        padding: 0 0 1rem;
+    }
+
+    ul {
+        margin: 0 0 0 1rem;
+        padding: 0 0 1rem;
+        li {
+
+            &:before {
+                content: "• ";
+                color: $black; // or whatever color the designer desires
+            }
+        }
+    }
+
+    li {
+    }
+
+
+    // BLOCKQUOTES
+    blockquote {
+
+        p {
+            font-style: italic;
+        }
+    }
+
+    // DATALISTS // uh oh. i always thought that was definition lists
+    dl {}
+    dt {}
+    dd {}
+
+    //////////////
+    // POST IMAGES
+    //////////////
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .post-image {
+        margin: 1rem 1rem 1rem 0;
+        padding: 0px;
+    }
+
+    //#todo-joel - this is wet... try it w/ out display: inline
+    .alignnone,
+    img.alignnone {
+        display: inline;
+        margin: 0 0 1rem;
+    }
+
+    .alignleft,
+    img.alignleft {
+        display: inline;
+        float: left;
+        margin: 1rem 1rem 1rem 0;
+    }
+
+    .alignright,
+    img.alignright {
+        display: inline;
+        float: right;
+        margin: 1rem 0 1rem 1rem;
+    }
+
+    .aligncenter,
+    img.aligncenter,
+    .entry_content .centered {
+        display: block;
+        margin: 1rem auto;
+    }
+
+    // POST VIDEOS
+    video {}
+    object {}
+    pre {
+        font-size: 0.875rem;
+        padding: 0.8rem;
+    }
+
+} // end entry-content
+
+
+//////////////////////
+// POST META
+//////////////////////
+
+.post-meta {
+    .categories {}
+    .tags {}
+}
+
+
+//////////////////////
+// POST NAVIGATION
+//////////////////////
+
+.navigation {
+    font-size: 1rem;
+    padding: 1rem 0;
+    margin: 0 1rem 1rem;
+
+    li {
+        display: inline;
+
+        a {
+            padding: 0.8rem;
+
+            &:hover {}
+        }
+    }
+
+    li.disabled {}
+
+    li.active {
+        a {}
+    }
+}
+
+
+//////////////////////
+// WP-CAPTION
+//////////////////////
+
+.wp-caption {
+    padding: 0.5rem;
+    text-align: center;
+
+    img {}
+
+    .wp-caption-text {
+        font-size: 0.875rem;
+        padding: 5px 0;
+    }
+}
+
+
+
+//////////////////////
+// AUTHOR BOX
+//////////////////////
+
+.author-box {
+    margin: 0 20px 40px;
+    padding: 10px 0;
+
+    p {
+        font-size: 1rem;
+    }
+
+    .avatar {
+        float: left;
+        margin: 0 10px 0 0;
+    }
+
+} /* end author-box */
+
+
+//////////////////////
+// SIDEBAR
+//////////////////////
+
+#sidebar {
+
+    .widget {}
+}
+
+//////////////////////
+// WIDGET STYLES
+//////////////////////
+
+.widget {
+
+    h4 {}
+
+    ul,
+    ol {}
+
+    li {
+        word-wrap: break-word;
+
+        &:last-child {}
+        ul {}
+    }
+
+} // end widget
+
+
+// links widget
+.widget_links {
+
+    ul {}
+
+    li {}
+
+} // end links widget
+
+
+// meta widget
+.widget_meta {
+
+    ul {}
+
+    li {}
+
+} // end meta widget
+
+
+// pages widget
+.widget_pages {
+
+    ul {}
+
+    li {}
+
+} // end pages widget
+
+
+// recent-posts widget
+.widget_recent_entries {
+
+    ul {}
+
+    li {}
+
+} // end recent post widget
+
+
+// archives widget
+.widget_archive {
+
+    ul {}
+
+    li {}
+
+    select {}
+
+    option {}
+
+} // end archives widget
+
+
+// tag-cloud widget
+.widget_links {}
+.widget_links li:after {}
+.widget_links li:before {}
+.widget_tag_cloud {}
+.widget_tag_cloud a {}
+.widget_tag_cloud a:after {}
+.widget_tag_cloud a:before {}
+.widget_tag_cloud div div {
+}
+
+// calendar widget
+.widget_calendar {}
+#calendar_wrap {}
+#calendar_wrap th {}
+#calendar_wrap td {}
+#wp-calendar {
+}
+
+#wp-calendar thead {
+}
+
+#wp-calendar td {
+}
+
+#wp-calendar caption {
+}
+
+#wp-calendar a {}
+#wp-calendar #today {}
+#wp-calendar #prev {}
+#wp-calendar #next {}
+#wp-calendar #next a {}
+#wp-calendar #prev a {}
+
+/* category widget */
+.widget_categories {}
+.widget_categories ul {}
+.widget_categories ul li {}
+.widget_categories ul ul.children {}
+.widget_categories a {}
+.widget_categories select{}
+.widget_categories select#cat {}
+.widget_categories select.postform {}
+.widget_categories option {}
+.widget_categories .level-0 {}
+.widget_categories .level-1 {}
+.widget_categories .level-2 {}
+.widget_categories .level-3 {}
+
+// recent-comments widget
+.recentcomments {}
+#recentcomments {}
+#recentcomments li {}
+#recentcomments li a {}
+.widget_recent_comments {}
+
+// search widget
+#searchform {}
+.widget_search {}
+.screen-reader-text {}
+
+// text widget
+.textwidget {
+}
+
+.widget_text {}
+.textwidget p {}
+
+// eNews and Update Widget
+.enews p {
+}
+
+.enews #subscribe {
+}
+
+.enews #subbox {
+}
+
+// User Profile Widget
+.user-profile {}
+.user-profile p {
+}
+
+.user-profile .posts_link {
+}
+
+
+//////////////////////
+// COMMENT STYLES
+///////////////////////
+
+#comments {
+    margin: 0 0 1rem;
+    padding: 0 1rem;
+
+    .navigation {}
+
+} // end comments
+
+.subscribe-to-comments {
+    padding: 1rem 0;
+}
+
+
+.comment-list {
+
+    li {
+        margin: 1rem 0;
+        padding: 1rem;
+
+        &:last-child {}
+
+        ul.children {
+
+            li {
+                margin-left: 0.89rem;
+                margin-right: -0.6rem;
+            }
+
+            // variations
+            .comment {}
+            .alt {}
+            .odd {}
+            .even {}
+            .depth-1 {} // change number for different depth
+            .byuser {}
+            .bypostauthor {}
+            .comment-author-admin {}
+        }
+    }
+
+    li[class*=depth-] {}
+    li.depth-1 {}
+
+    li:not(.depth-1) {}
+    li.depth-2 {}
+    li.depth-3 {}
+    li.depth-4 {}
+    li.depth-5 {}
+
+    .alt {}
+    .odd {}
+    .even {}
+    .parent {}
+    .comment {}
+    .children {}
+    .pingback {}
+    .bypostauthor {}
+    .comment-author {}
+    .comment-author-admin {}
+    .thread-alt {}
+    .thread-odd {}
+    .thread-even {}
+
+    // vcard
+    .vcard {
+
+        cite.fn {
+
+            a.url {}
+
+            .says {}
+
+        }
+
+        .commentmetadata {
+            margin: 0 0 1rem;
+
+            a {}
+        }
+
+        img.avatar {
+            float: right;
+            margin: 0 0.5rem 0 1rem;
+        }
+
+    } // end .commentlist .vcard
+
+
+    .comment-content {
+
+        p {}
+
+        .reply {}
+    }
+
+} // end comment-list
+
+
+//////////////////////
+// PING LIST
+//////////////////////
+
+.ping-list {
+
+    ol {}
+
+    li {}
+
+    cite {}
+
+} // end ping list
+
+
+///////////////////////
+// COMMENT FORM STYLES
+//////////////////////
+
+#respond {
+    margin: 0 0 1rem;
+    padding: 0 1rem;
+}
+
+#reply-title {}
+
+#cancel-comment-reply {
+    a {}
+}
+
+#commentform {
+
+    label {}
+    .required {}
+}
+
+.comments-logged-in-as {}
+
+#author,
+#email,
+#url,
+#comment {
+}
+
+#author:focus,
+#email:focus,
+#url:focus,
+#comment:focus {}
+
+#comment {
+}
+
+#submit {}
+
+
+//////////////////////
+// FORM VALIDATION
+//////////////////////
+
+#author:invalid,
+#email:invalid,
+#url:invalid {}
+
+
+//////////////////////
+// NO COMMENTS
+//////////////////////
+
+.nocomments {
+    text-align: center;
+}
+
+
+//////////////////////
+// FOOTER WIDGETS
+//////////////////////
+
+#footer-widgets {}
+
+h4 {}
+
+p {}
+
+.widget {
+
+    ul,
+    ol {}
+}
+
+// overrides for the featured posts
+.featuredpage .page,
+.featuredpost .post {
+}
+
+// override for tag cloud
+.widget_tag_cloud div div {
+}
+
+// override for the text widgets
+.textwidget {
+}
+
+// override for the calendar widget
+#wp-calendar thead,
+#wp-calendar td {
+}
+
+//////////////////////
+// FOOTER
+//////////////////////
+
+#footer {
+
+    a,
+    a:visited {
+
+        a:hover,
+        a:focus {
+        }
+
+    }
+
+}
+
+.gototop,
+.creds {}
+
+.gototop {}
+.creds {}
+
+.powered-by {
+    width: 100%;
+    text-align: center;
+}
+
+
+//////////////////////
+// FORM ELEMENTS
+//////////////////////
+
+
+//////////////////////
+// BUTTONS
+//////////////////////
+
+
+.button, .button:visited {
+    font: {
+        size: 11px; // f-f-f-fallback
+        size: p2r(11px);
+        weight: $bold;
+    }
+    color: $white;
+    display: inline-block;
+    cursor: pointer;
+    padding: p2r(4px) p2r(12px);
+    text-decoration: none;
+    @include text-shadow( rgba(0,0,0,0.75), 0 1px );
+    margin-bottom: p2r(20px);
+    line-height: p2r(21px);
+
+    &:hover, &:focus {
+        color: $white;
+    }
+
+    &:active {
+    }
+
+}
+
+
+//////////////////////
+// GRAVITY FORM STYLES
+//////////////////////
+
+
+div.gform_wrapper {
+
+    .ginput_complex {
+        label {
+        }
+    }
+
+    input,
+    select,
+    textarea {
+    }
+
+    li,
+    form li {
+        margin: 0 0 1rem; // like this stuff.
+    }
+
+    .gform_footer {
+        border: none;
+        margin: 0;
+        padding: 0;
+
+        input.button {}
+    }
+
+} // end gform_wrapper

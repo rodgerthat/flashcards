@@ -1,0 +1,72 @@
+/******************************************************************!
+Ah So Custom Admin Stylesheet
+http://codex.wordpress.org/Creating_Admin_Themes
+******************************************************************/
+
+// COLORS
+
+$white: #FFF; // el blanco diablo
+
+
+#wpwrap {
+    //background: #FFF images-url("body-bg.jpg") repeat-x top center;
+}
+
+html, .wp-dialog { background-color: transparent; }
+
+#floatMenu { background: transparent; }
+
+// admin bar favicon
+.wp-admin #wp-admin-bar-wp-logo .ab-icon {
+    background: transparent image-url("favicon.ico") no-repeat center;
+    background-size: cover;
+}
+// overrides for admin bar icon
+body.wp-admin #wp-admin-bar-wp-logo .ab-icon:hover { background-position: 2px 2px; }
+
+body.wp-admin #wpadminbar #wp-admin-bar-wp-logo.hover>.ab-item .ab-icon { background-position: 2px 2px; }
+
+
+// theme options menu favicon
+.ahso-favicon {
+    background: transparent image-url("favicon.ico") no-repeat center;
+    background-size: cover;
+    width: 19px;
+    height: 19px;
+    margin: 5px auto 0 4px;
+}
+
+// not on my watch you don't
+// no icon on taxonomy terms order options
+#menu-settings .wp-submenu a[href$='page=to-options'] img { display: none; }
+
+// bg for the tinyMCE
+#wp-content-editor-container {
+    background: $white;
+}
+
+/////////////////////////////////////
+// WordPress SE0 no YOAST-Face tyty.
+////////////////////////////////////
+
+.toplevel_page_wpseo_dashboard,
+.seo_page_wpseo_titles,
+.seo_page_wpseo_social,
+.seo_page_wpseo_xml,
+.seo_page_wpseo_permalinks,
+.seo_page_wpseo_internal-links,
+.seo_page_wpseo_rss,
+.seo_page_wpseo_import,
+.seo_page_wpseo_files {
+    #sidebar {
+        display: none;
+    }
+}
+
+////////////////////////////
+// BlackBox DeBugBar Admin
+///////////////////////////
+
+#blackbox-web-debug {
+    display: none;
+}

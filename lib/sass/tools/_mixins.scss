@@ -1,0 +1,69 @@
+///////////////////////////////////////////////////////////////////
+// Stylesheet: Mixins & Constants Stylesheet
+
+// This is where you can take advantage of SASS's great features:
+// Mixins & Constants.
+
+// A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+// remember LESS is more. See what I did there? Nice.
+// Too bad we ditched LESS. Still funny tho.
+
+///////////////////////////////////////////////////////////////////
+
+
+//////////////////////
+// MIXINS
+//////////////////////
+
+////
+// Font Size Mixin
+//
+// uses p2r function and outputs font-size w/ a fallback in px
+//
+// @url : http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+///
+@mixin fontSize($size) {
+    font-size: $size; //Fallback in px
+    font-size: p2r($size);
+}
+
+
+///
+// Image Replacement
+//
+// new image replacement over pharking
+///
+@mixin image-replacement() {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// there a compass mixin for this already.
+///
+// Input PlaceHolder Style
+//
+// outputs vendor prefixes for HTML5 placeholder attribute
+///
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+//////////////////////
+// EXTENDIBLE CLASSES
+//////////////////////
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.image-replacement {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hidden { display: none; visibility: hidden; }
+

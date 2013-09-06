@@ -1,0 +1,92 @@
+/******************************************************************!
+Ah So Custom Login Stylesheet
+http://codex.wordpress.org/Creating_Admin_Themes
+******************************************************************/
+
+//////////////////////
+// IMPORTING MODULES
+//////////////////////
+
+@import "compass/css3";
+@import "compass/utilities";
+@import 'photoshop-drop-shadow';
+
+@import "zen"; // zen grids! kittehs!
+@import "zen/background"; // background grid overlay
+
+
+//////////////////////
+// PARTIALS
+/////////////////////
+
+@import "../tools/_mixins.scss";
+
+
+////////////////////
+// LOGIN COLORS
+//////////////////
+
+$white: #FFF;
+$black: #000;
+
+
+//////////////////////
+// LOGIN FONTS
+/////////////////////
+
+$sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:              "Georgia", Cambria, Times New Roman, Times, serif; // ode to Miss Mallory
+
+/////////////////////
+
+body.login {}
+
+#login {} // the form box
+
+// This is the Wordpress logo in the admin area.
+// You'll have to load your own images and mess
+// with the width and height.
+
+.login h1 a {
+    //background: image-url("logo.png") no-repeat top center;
+    background: image-url("login-logo.png") no-repeat top center; // make sure to replace this!
+    width: 326px;
+    height: 67px;
+    padding-bottom: 15px;
+    display: block;
+    @include image-replacement;
+}
+
+form {
+    margin-left: 8px;
+    padding: 26px 24px 46px;
+    font-weight: normal;
+    background: white;
+    border: 1px solid #E5E5E5;
+    @include border-radius(3px);
+    @include box-shadow(none);
+}
+
+body form .input {
+    font: {
+        family: $sans-serif;
+        weight: 200;
+        size: 24px;
+    }
+    width: 97%;
+    padding: 3px;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #E5E5E5;
+    background: #FBFBFB;
+    outline: none;
+    @include box-shadow( rgba(200,200,200,0.2), 1px, 1px, 2px, inset );
+}
+
+
+//You'll have to override some of the default styles
+//but since we're referencing the id, it should be easy.
+//U were born to be a CSS_SNIper...
+
+#wp-submit {} // login button

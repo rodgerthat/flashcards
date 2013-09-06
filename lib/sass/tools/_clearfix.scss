@@ -1,0 +1,108 @@
+////////////////////////////////////////////
+// CLEARFIXING GENESIS
+// What's this? Fixing floats is one
+// of the oldest headaches in web design.
+// Instead of using overflow:hidden, we
+// are going to clear them using a cool
+// trick used in the HTML5 Boilerplate:
+// http://nicolasgallagher.com/micro-clearfix-hack/
+// To do this though, we have to manually add
+// the items we want to clearfix here.
+// Kind of a pain, yes, but it's a much more
+// natural solution.
+////////////////////////////////////////////
+
+// For modern browsers, an explanation
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+
+.clearfix {
+    &:before,
+    &:after {
+        content: ""; // 1 ( some versions have a space, others have a &nbsp; )
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1; // for IE > 8
+}
+
+// Genesis
+#inner:before,
+#inner:after,
+#title-area:before, // you've got to be kidding */
+#title-area:after,
+.entry-content:before,
+.entry-content:after,
+.author-box:before,
+.author-box:after,
+.navigation:before,
+.navigation:after, // is all this really efficient? */
+.user-profile:before,
+.user-profile:after,
+.featuredpage:before,
+.featuredpost:before,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:before,
+.featuredpost .post:before,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:before, // nope. probably not */
+#footer:after,
+#footer-widgets:before,
+#footer-widgets:after,
+.wrap:before,
+.wrap:after,
+#comments:before,
+#respond:before,
+#comments:after, // but it's easier than dealing with overflow: hidden */
+#respond:after,
+.menu:before,
+.menu:after,
+.breadcrumb:before,
+.breadcrumb:after { content: ""; display: table; }
+
+#inner:after,
+#title-area:after,
+.entry-content:after,
+.author-box:after,
+.navigation:after, // i tried a ton of solutions */
+.user-profile:after,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:after, // but until Genesis adds a clearfix */
+.wrap:after,
+#comments:after,
+#respond:after,
+#footer-widgets:after,
+.menu:after,
+.breadcrumb:after { clear: both; }
+#inner,
+#title-area,
+.entry-content, // this is what I'm going with
+.author-box,
+.navigation,
+.user-profile,
+.featuredpage,
+.featuredpost, // suggestions? hit me on twitter: @eddiemachado
+.featuredpage .page,
+.featuredpost .post,
+#footer,
+.wrap,
+#comments, // I'd love to hear your thoughts
+#respond,
+#footer-widgets,
+.menu,
+.breadcrumb { zoom: 1; }
+
+// I agree, this is reDONKulous.

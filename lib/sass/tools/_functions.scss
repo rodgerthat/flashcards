@@ -1,0 +1,59 @@
+/////////////////////////////////////////////
+// FUNCTIONS
+//
+// SASS Functions.
+// HUZZAH!
+// no moar math.
+// time to get dumber.
+////////////////////////////////////////////
+
+
+////
+// Calculate Percent
+//
+// calculate percent for fluid layout
+//
+// @url : http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+///
+
+@function cp( $target, $container ) {
+
+    @return ( $target / $container ) * 100%;
+
+}
+
+////
+// Pixels 2 Rems
+//
+// calculates rems based on px value passed in,
+// using the $BASE-FONT-SIZE constant set value ( usually 16... usually... )
+//
+// @url : http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+///
+
+@function p2r( $px ) {
+
+    $remSize: $px / $BASE-FONT-SIZE;
+
+    @return #{$remSize}rem;
+
+}
+
+
+////
+// Photoshop Tracking to CSS letter-spacing
+//
+// pass in tracking value ( in px ) from photoshop
+// outputs value in rems
+//
+// @url : http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+// @url : https://coderwall.com/p/f332wg
+///
+
+@function t2ls( $tracking-px ) {
+
+    $letter-spacing: ( $tracking-px * $BASE-FONT-SIZE / 1000 ) / $BASE-FONT-SIZE;
+
+    @return #{$letter-spacing}rem;
+
+}

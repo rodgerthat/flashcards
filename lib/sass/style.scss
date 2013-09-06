@@ -1,0 +1,75 @@
+/**!
+Theme Name: Flash Cards
+Theme URI: http://127.0.0.1:8080/wordpress
+Description: Simple flashcards program. used for sight words
+Author: joelrnorris
+Author URI: http://joelrnorris.com
+Version: 1.0
+Tags: mobile, application, flexslider, html5, sass,
+License: WTFv2
+License URI: http://icanhazip.com
+
+General comments ( optional )
+*/
+
+//////////////////////
+// CONSTANTS
+//////////////////////
+
+$themename: "flashcards";
+$WRAP: 960px; // width for #wrap
+
+//$BASE-FONT-SIZE: medium; // browser default, better for control in media queries : http://css-tricks.com/why-ems/
+$BASE-FONT-SIZE: 16px;
+$BASELINE: 8px;
+
+
+//////////////////////
+// ZEN GRIDS
+//////////////////////
+
+//$zen-grid-item-base(  );
+
+//$zen-column-count: 12; // total number of columns in the grid
+//$zen-gutter-width: 20px; // gutter size, half-gutter is used on each side of the column
+
+$zen-box-sizing: border-box !default;
+
+$legacy-support-for-ie8: false !default;
+$legacy-support-for-ie7: false !default;
+$legacy-support-for-ie6: false !default;
+
+// zen-colors
+//$grid-bg-color:     #BADEFA;
+$grid-bg-color:     rgba(186,222,250,0.69);
+$zen-grids-green:   rgba(44,144,44,0.69);
+
+//////////////////////
+// IMPORTING MODULES
+//////////////////////
+
+@import "compass/css3";
+@import "compass/utilities";
+@import 'photoshop-drop-shadow';
+
+@import "rwd/zen"; // zen grids! kittehs!
+@import "rwd/zen/background"; // background grid overlay
+
+
+///////////////////////////////////////////////////////////////////
+// BASE STYLES
+///////////////////////////////////////////////////////////////////
+
+@import "tools/_functions.scss";
+@import "tools/_mixins.scss";
+
+@import "normalize"; // normalize it
+@import "tools/_zeros.scss";
+@import "tools/_clearfix.scss";
+
+@import "tools/_typography.scss";
+
+@import "sliders/_flexslider.scss";
+
+@import "rwd/_base.scss";
+

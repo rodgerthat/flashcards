@@ -1,0 +1,19 @@
+///////////////////////////////////////////////////////////////////
+// ZEROS
+// base styling for certain elements.
+// overrides browser defaults.
+// stuff the normalize won't catch
+// webkit keeps padding everything.
+///////////////////////////////////////////////////////////////////
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+
