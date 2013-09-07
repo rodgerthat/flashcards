@@ -15,7 +15,7 @@ class FC_Ajax {
     function __construct() {
 
         // add js that will initiate ajax requests
-        add_action( 'wp_enqueue_scripts', array( &$this, 'fc_enqueue_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ) );
 
         // make sure ajax is happening
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -30,11 +30,11 @@ class FC_Ajax {
      * enqueue & localize scripts that initialize AJAX requests
      * and pass vars from PHP to JS
      */
-    function fc_enqueue_scripts() {
+    function enqueue_scripts() {
 
-        wp_enqueue_script( 'flashcards-ajax', CHILD_URL.'/lib/js/jquery.flashcards-ajax.js', array('jquery'), '1.0', true );
+        wp_enqueue_script( 'fc-ajax', CHILD_URL.'/lib/js/jquery.fc-ajax.js', array('jquery'), '1.0', true );
 
-        wp_localize_script( 'flashcards-ajax', 'flashcardsAjax', array(
+        wp_localize_script( 'fc-ajax', 'FC_Ajax', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
             'action' => $this->action,
             'nonce' => wp_create_nonce( $this->action ),

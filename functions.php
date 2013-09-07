@@ -23,4 +23,8 @@ include_once( CHILD_DIR . '/lib/scripts.php' ); // register / enqueue | scripts 
 
 // CLASSES ///////////////////////////////////////////
 
-//include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
+include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
+
+
+
+new FC_Ajax();
