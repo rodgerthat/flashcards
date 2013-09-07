@@ -28,8 +28,59 @@ include_once( CHILD_DIR . '/lib/scripts.php' ); // register / enqueue | scripts 
 //include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
 
 
+// MENU GENERATOR ///////////////////////////////////////////
+
+function fc_generate_menu() {
+
+    $taxonomy = 'groups';
+    $term_args = array(
+        'orderby'       => '',
+        'order'         => 'ASC',
+        'hide_empty'    => true,
+        'exclude'       => array(),
+        'exclude_tree'  => array(),
+        'include'       => array(),
+        'number'        => '',
+        'fields'        => 'all',
+        'slug'          => '',
+        'parent'         => '',
+        'hierarchical'  => true,
+        'child_of'      => 0,
+        'get'           => '',
+        'name__like'    => '',
+        'pad_counts'    => false,
+        'offset'        => '',
+        'search'        => '',
+        'cache_domain'  => 'core'
+    );
+
+    $terms = get_terms( $taxonomy );
+
+    //print_r($terms);
+
+    $menu = '<ul class="menu">';
+
+    foreach ( $terms as $term ) {
+
+        $menu .= '<li><button class="group" data-termSlug="'.$term->slug.'">'.$term->name.'</button></li>';
+
+    }
+
+    $menu .= '</ul>';
+
+    echo $menu;
+    //return $menu;
+
+}
 
 // AJAX HANDLERS ///////////////////////////////////////////
+
+/**
+ * AJAX
+ *
+ * @url : http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/
+ * @url : http://codex.wordpress.org/AJAX_in_Plugins#Ajax_on_the_Viewer-Facing_Side
+ */
 
 // make sure ajax is happening
 //if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -40,13 +91,54 @@ add_action( 'wp_ajax_nopriv_' . AJAX_ACTION, 'fc_do_ajax' ); // for logged-out u
 
 function fc_do_ajax() {
 
+    // verify nonce ( saftey 1stish )
+    $nonce = $_POST['nonce'];
+
+    if ( !wp_verify_nonce( $nonce, AJAX_ACTION ) ) die ( '$yr_nonce == !good' );
+
     // do something asynchronous
 
     // get submitted parameters
-    $postID = $_POST['postID'];
+    $termSlug = $_POST['termSlug'];
+
+    // get all the flashcards in that group
+    $flashcards = array();
+
+    // WP_Query arguments
+    $args = array (
+        'post_type'              => 'flashcards',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'groups',
+                'field' => 'slug',
+                'terms' => $termSlug
+            )
+        )
+    );
+
+    // The Query
+    $fc_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $fc_query->have_posts() ) {
+        while ( $fc_query->have_posts() ) {
+            $fc_query->the_post();
+            // do something
+            global $post;
+
+            // place postdata in an array for return
+            $flashcards[] = $post->post_title;
+        }
+    } else {
+        // no posts found
+        $flashcards[] = 'no flashcards found';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
 
     // generate the response
-    $response = json_encode( array( 'success' => true, 'postID' => $postID ) );
+    $response = json_encode( array( 'success' => true, 'termSlug' => $termSlug, 'flashcards' => $flashcards )  );
 
     // response output
     header( "Content-Type: application/json" );

@@ -18,12 +18,8 @@
 <header>
 
 </header>
+
 <nav>
-    <ul>
-        <li><button class="ajax-clicker" data-postID="37">click me dammit.</button></li>
-        <li><button></button></li>
-        <li><button></button></li>
-        <li><button></button></li>
-    </ul>
+    <?php fc_generate_menu() ?>
 </nav>
 

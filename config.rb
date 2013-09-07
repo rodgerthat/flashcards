@@ -16,9 +16,8 @@ output_style = :expanded
 
 # project resources
 http_path = "/"
-#todo - update basecamp todos w/ this update config.rb image path
 http_images_path = "http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/images/"
 css_dir = "/"
 sass_dir = "lib/sass"
-images_dir = "lib/images"
+images_dir = "lib/img"
 javascripts_dir = "lib/js"
