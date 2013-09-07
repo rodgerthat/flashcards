@@ -39,6 +39,7 @@ body.wp-admin #wpadminbar #wp-admin-bar-wp-logo.hover>.ab-item .ab-icon { backgr
 // not on my watch you don't
 // no icon on taxonomy terms order options
 #menu-settings .wp-submenu a[href$='page=to-options'] img { display: none; }
+#menu-settings .wp-submenu a[href$='page=cpto-options'] img { display: none; }
 
 // bg for the tinyMCE
 #wp-content-editor-container {

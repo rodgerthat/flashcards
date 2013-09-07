@@ -6,8 +6,8 @@
  *
  */
 
-add_action( 'init', 'jrn_flashcards_cpt_init' );
-function jrn_flashcards_cpt_init() {
+add_action( 'init', 'fc_flashcards_cpt_init' );
+function fc_flashcards_cpt_init() {
 
     $flashcards_cpt_labels = array(
         'name' => 'Flash Cards',
@@ -44,21 +44,21 @@ function jrn_flashcards_cpt_init() {
 
 }
 
-add_action( 'init', 'jrn_flashcards_tax_init' );
-function jrn_flashcards_tax_init() {
+add_action( 'init', 'fc_flashcards_tax_init' );
+function fc_flashcards_tax_init() {
     // Add new taxonomy, make it hierarchical (like categories)
     $flashcards_tax_labels = array(
-        'name'              => _x( 'Lists', 'taxonomy general name' ),
-        'singular_name'     => _x( 'List', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Lists' ),
-        'all_items'         => __( 'All Lists' ),
-        'parent_item'       => __( 'Parent List' ),
-        'parent_item_colon' => __( 'Parent List:' ),
-        'edit_item'         => __( 'Edit List' ),
-        'update_item'       => __( 'Update List' ),
-        'add_new_item'      => __( 'Add New List' ),
-        'new_item_name'     => __( 'New List Name' ),
-        'menu_name'         => __( 'Lists' ),
+        'name'              => _x( 'Groups', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Group', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Groups' ),
+        'all_items'         => __( 'All Groups' ),
+        'parent_item'       => __( 'Parent Group' ),
+        'parent_item_colon' => __( 'Parent Group:' ),
+        'edit_item'         => __( 'Edit Group' ),
+        'update_item'       => __( 'Update Group' ),
+        'add_new_item'      => __( 'Add New Group' ),
+        'new_item_name'     => __( 'New Group Name' ),
+        'menu_name'         => __( 'Groups' ),
     );
 
     $flashcards_tax_args = array(
@@ -67,8 +67,8 @@ function jrn_flashcards_tax_init() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'genre' ),
+        'rewrite'           => array( 'slug' => 'group' ),
     );
 
-    register_taxonomy( 'lists', array( 'flashcards' ), $flashcards_tax_args );
+    register_taxonomy( 'groups', array( 'flashcards' ), $flashcards_tax_args );
 }

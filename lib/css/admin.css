@@ -1,0 +1,51 @@
+/******************************************************************!
+Ah So Custom Admin Stylesheet
+http://codex.wordpress.org/Creating_Admin_Themes
+******************************************************************/
+html, .wp-dialog {
+  background-color: transparent; }
+
+#floatMenu {
+  background: transparent; }
+
+.wp-admin #wp-admin-bar-wp-logo .ab-icon {
+  background: transparent url('http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/images/favicon.ico') no-repeat center;
+  background-size: cover; }
+
+body.wp-admin #wp-admin-bar-wp-logo .ab-icon:hover {
+  background-position: 2px 2px; }
+
+body.wp-admin #wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {
+  background-position: 2px 2px; }
+
+.ahso-favicon {
+  background: transparent url('http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/images/favicon.ico') no-repeat center;
+  background-size: cover;
+  width: 19px;
+  height: 19px;
+  margin: 5px auto 0 4px; }
+
+#menu-settings .wp-submenu a[href$='page=to-options'] img {
+  display: none; }
+
+#menu-settings .wp-submenu a[href$='page=cpto-options'] img {
+  display: none; }
+
+#wp-content-editor-container {
+  background: white; }
+
+.toplevel_page_wpseo_dashboard #sidebar,
+.seo_page_wpseo_titles #sidebar,
+.seo_page_wpseo_social #sidebar,
+.seo_page_wpseo_xml #sidebar,
+.seo_page_wpseo_permalinks #sidebar,
+.seo_page_wpseo_internal-links #sidebar,
+.seo_page_wpseo_rss #sidebar,
+.seo_page_wpseo_import #sidebar,
+.seo_page_wpseo_files #sidebar {
+  display: none; }
+
+#blackbox-web-debug {
+  display: none; }
+
+/*@ sourceMappingURL=admin.css.map */

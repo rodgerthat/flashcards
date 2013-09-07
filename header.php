@@ -14,3 +14,16 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
     <?php wp_head(); ?>
 </head>
+<body>
+<header>
+
+</header>
+<nav>
+    <ul>
+        <li><button class="ajax-clicker" data-postid="37">click me dammit.</button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+    </ul>
+</nav>
+

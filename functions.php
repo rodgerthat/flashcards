@@ -17,5 +17,10 @@ define( 'CHILD_DIR', get_stylesheet_directory() );
 
 include_once( CHILD_DIR . '/lib/cpts/flashcards.php' ); // CPT & CT for flashcards
 
+include_once( CHILD_DIR . '/lib/admin.php' ); // custom login / admin
+
 include_once( CHILD_DIR . '/lib/scripts.php' ); // register / enqueue | scripts / styles
 
+// CLASSES ///////////////////////////////////////////
+
+//include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class

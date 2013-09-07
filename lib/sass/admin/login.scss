@@ -9,7 +9,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 @import "compass/css3";
 @import "compass/utilities";
-@import 'photoshop-drop-shadow';
+@import "photoshop-drop-shadow";
 
 @import "zen"; // zen grids! kittehs!
 @import "zen/background"; // background grid overlay
@@ -43,10 +43,7 @@ body.login {}
 
 #login {} // the form box
 
-// This is the Wordpress logo in the admin area.
-// You'll have to load your own images and mess
-// with the width and height.
-
+// wp logo
 .login h1 a {
     //background: image-url("logo.png") no-repeat top center;
     background: image-url("login-logo.png") no-repeat top center; // make sure to replace this!
@@ -83,10 +80,5 @@ body form .input {
     outline: none;
     @include box-shadow( rgba(200,200,200,0.2), 1px, 1px, 2px, inset );
 }
-
-
-//You'll have to override some of the default styles
-//but since we're referencing the id, it should be easy.
-//U were born to be a CSS_SNIper...
 
 #wp-submit {} // login button

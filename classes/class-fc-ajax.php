@@ -1,15 +1,7 @@
 <?php
 /**
- * index.php
+ * FC_Ajax
  */
-
-get_header();
-
-echo 'do something';
-
-//if ( ! class_exists( 'FC_Ajax' ) )
-
-#todo - try moving the functionality out of a class, no OOP yet...
 
 class FC_Ajax {
 
@@ -23,13 +15,13 @@ class FC_Ajax {
     function __construct() {
 
         // add js that will initiate ajax requests
-        add_action( 'wp_enqueue_scripts', array( $this, 'fc_enqueue_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( &$this, 'fc_enqueue_scripts' ) );
 
         // make sure ajax is happening
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             // add callbacks for AJAX requests
-            add_action( 'wp_ajax_' . $this->action, array( $this, 'do_ajax' ) ); // for logged-in users
-            add_action( 'wp_ajax_nopriv' . $this->action, array( $this, 'do_ajax' ) ); // for logged-out users
+            add_action( 'wp_ajax_' . $this->action, array( &$this, 'do_ajax' ) ); // for logged-in users
+            add_action( 'wp_ajax_nopriv' . $this->action, array( &$this, 'do_ajax' ) ); // for logged-out users
         }
 
     }
@@ -73,7 +65,3 @@ class FC_Ajax {
     }
 
 }
-
-new FC_Ajax();
-
-get_footer();
