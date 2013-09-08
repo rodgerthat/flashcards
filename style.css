@@ -522,20 +522,28 @@ header {
 #nav-toggle {
   background: url('http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/img/navicon.png?1378585769') no-repeat center;
   background-size: contain;
-  width: 96%;
+  width: 90%;
   height: 10%;
   display: block;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  margin: 2%; }
-
-a.select-group {
-  cursor: pointer; }
+  margin: 2% 5%; }
 
 #main-nav {
   width: 100%;
   text-align: center; }
+
+.menu li a {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: block;
+  border-bottom: 1px #EEE solid;
+  margin: 0 5%;
+  width: 90%; }
+  .menu li a:hover {
+    color: #EEE;
+    text-decoration: none; }
 
 /* responsive-nav.js v1.0.20 by @viljamis */
 #main-nav ul {
@@ -560,39 +568,39 @@ a.select-group {
 #main-nav.opened {
   max-height: 9999px; }
 
-@media screen and (min-width: 40em) {
-  .js #main-nav {
-    position: relative; }
+.flex-control-nav {
+  bottom: -5%; }
 
-  .js #main-nav.closed {
-    max-height: none; }
-
-  #nav-toggle {
-    display: none; } }
 .flex-container {
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   width: 90%;
-  height: 90%;
-  padding: 5%; }
+  height: 87%;
+  padding: 9% 5%; }
 
 .flexslider,
 .flex-viewport,
 .slides,
 .slides li,
-.table,
-.table-cell {
+.table {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0; }
 
+.slides > li {
+  background-color: white; }
+
 .table {
   display: table; }
 
+.card.welcome .table-cell {
+  font-size: 16px; }
+
 .table-cell {
+  font-size: 7rem;
   text-align: center;
   display: table-cell;
   vertical-align: middle; }
@@ -602,6 +610,11 @@ a.select-group {
   width: 90%;
   bottom: 10%;
   height: 10%; }
+  .flex-direction-nav a {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    line-height: 50px; }
   .flex-direction-nav .flex-prev {
     left: 0; }
   .flex-direction-nav .flex-next {

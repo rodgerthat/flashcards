@@ -66,6 +66,7 @@ function fc_generate_menu() {
 
     }
 
+    $menu .= '<li><a class="instructions" data-termSlug="instructions">Instructions</a></li>';
     $menu .= '</ul>';
 
     echo $menu;
@@ -106,6 +107,7 @@ function fc_do_ajax() {
 
     // WP_Query arguments
     $args = array (
+        'posts_per_page' => '-1',
         'post_type'              => 'flashcards',
         'tax_query' => array(
             array(
