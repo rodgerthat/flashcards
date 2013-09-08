@@ -67,6 +67,7 @@ function fc_generate_menu() {
     }
 
     $menu .= '<li><a class="instructions" data-termSlug="instructions">Instructions</a></li>';
+    $menu .= '<li><a class="admin" data-termSlug="admin" href="'.wp_login_url().'">Login</a></li>';
     $menu .= '</ul>';
 
     echo $menu;
