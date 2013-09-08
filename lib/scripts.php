@@ -18,7 +18,13 @@ function fc_enqueue_scripts() {
 //    wp_register_script( 'flashcards', CHILD_URL.'/lib/js/jquery.fc.js', array('jquery'), '1.0', true );
 //    wp_enqueue_script( 'flashcards' );
 
+    // RESPONSIVE NAV
+    wp_register_script( 'responsive-nav', CHILD_URL.'/lib/js/responsive-nav.min.js', array(), '1.0.2', true );
+    wp_register_script( 'responsive-nav-init', CHILD_URL.'/lib/js/responsive-nav-init.js', array('responsive-nav'), '1.0.', true );
+    wp_enqueue_script( 'responsive-nav' );
+    wp_enqueue_script( 'responsive-nav-init' );
 
+    // AJAX
     wp_enqueue_script( 'fc-ajax', CHILD_URL.'/lib/js/jquery.fc-ajax.js', array('jquery'), '1.0', true );
 
     // #todo - add randmoizer for nonce

@@ -62,7 +62,7 @@ function fc_generate_menu() {
 
     foreach ( $terms as $term ) {
 
-        $menu .= '<li><button class="group" data-termSlug="'.$term->slug.'">'.$term->name.'</button></li>';
+        $menu .= '<li><a class="select-group" data-termSlug="'.$term->slug.'">'.$term->name.'</a></li>';
 
     }
 

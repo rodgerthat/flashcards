@@ -16,7 +16,7 @@ output_style = :expanded
 
 # project resources
 http_path = "/"
-http_images_path = "http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/images/"
+http_images_path = "http://127.0.0.1:8080/wordpress/wp-content/themes/flashcards/lib/img/"
 css_dir = "/"
 sass_dir = "lib/sass"
 images_dir = "lib/img"

@@ -69,7 +69,7 @@ add_filter( 'login_headertitle', 'fc_login_title' );
 
 // custom favicon for backend and login
 function fc_admin_favicon() {
-    echo '<link rel="shortcut icon" type="image/x-icon" href="'. get_stylesheet_directory_uri() .'/lib/images/favicon.ico" />'; // careful, chrome rly liek these...
+    echo '<link rel="shortcut icon" type="image/x-icon" href="'. get_stylesheet_directory_uri() .'/lib/img/favicon.ico" />'; // careful, chrome rly liek these...
 }
 add_action('admin_head', 'fc_admin_favicon');
 add_action('login_head', 'fc_admin_favicon');
@@ -94,7 +94,7 @@ function fc_admin_bar_site_icon() {
     // if they've got the admin bar turned off, bail.
     if ( ! is_admin_bar_showing() ) { return; }
     echo '<style>
-        body #wp-admin-bar-wp-logo>.ab-item .ab-icon { background: transparent url(' . get_stylesheet_directory_uri() . '/lib/images/favicon.ico) no-repeat center; background-size: cover; }
+        body #wp-admin-bar-wp-logo>.ab-item .ab-icon { background: transparent url(' . get_stylesheet_directory_uri() . '/lib/img/favicon.ico) no-repeat center; background-size: cover; }
         body #wpadminbar #wp-admin-bar-wp-logo.hover>.ab-item .ab-icon { background-position: 2px 2px; }
     </style>';
 }
