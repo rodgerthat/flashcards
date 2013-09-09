@@ -8,8 +8,8 @@ get_header();
 // generate flexslider markup
 $fs = '<div class="flex-container">';
 $fs .= '<div id="flexslider-1" class="flexslider">';
-// #todo - here's where the yoshi font gets hooked up...
-$fs .= '<ul class="slides yoshi">';
+// #todo - here's where the yoshi font gets hooked up..., there;s a css class and you just dynamiccammaammly bolt it to the .slides
+$fs .= '<ul class="slides">';
 $fs .= '<li class="card welcome">';
 $fs .= '<div class="table">';
 $fs .= '<div class="table-cell">';
