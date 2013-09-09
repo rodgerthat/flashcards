@@ -7,17 +7,17 @@ I wanted to get better at #ajax in wordpress and #dynamic #flexslider integratio
 and i've never made a raw wordpress theme.
 So this seemed like a simple project for such a thing.
 
-## Installation
+Installation
 -------------------------
 
 It's a WordPress Theme, zip and upload via Appearance -> Themes -> Add New Theme, then activate.
 OR copy files into /wp-content/themes/flashcards/ and then activate.
 
-## Tests
+Tests
 -------------------------
 Kinda.
 
-## Contributors
+Contributors
 -------------------------
 email me.
 
@@ -25,7 +25,7 @@ email me.
 -------------------------
 WTFPLv1
 
-## Grow Something.
+Grow Something.
 -------------------------
 <pre>
              ,-.
