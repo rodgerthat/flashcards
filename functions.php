@@ -27,7 +27,6 @@ include_once( CHILD_DIR . '/lib/scripts.php' ); // register / enqueue | scripts 
 
 //include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
 
-
 // MENU GENERATOR ///////////////////////////////////////////
 
 function fc_generate_menu() {
@@ -151,5 +150,4 @@ function fc_do_ajax() {
     // IMPORTANT : don't forget to 'exit'
     exit;
 }
-
 

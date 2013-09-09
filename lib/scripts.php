@@ -12,19 +12,24 @@ function fc_enqueue_scripts() {
     wp_register_script( 'flexslider', CHILD_URL.'/lib/js/jquery.flexslider-min.js', array('jquery'), '2.2.0', true );
     wp_enqueue_script( 'flexslider' );
 
+<<<<<<< HEAD
     // RESPONSIVE NAV
     wp_register_script( 'responsive-nav', CHILD_URL.'/lib/js/responsive-nav.min.js', array(), '1.0.2', true );
     wp_enqueue_script( 'responsive-nav' );
+=======
+    // FLASHCARDS
+//    wp_register_script( 'flashcards', CHILD_URL.'/lib/js/jquery.flashcards.js', array('jquery'), '1.0', true );
+//    wp_enqueue_script( 'flashcards' );
 
     // AJAX & INITS
     wp_register_script( 'fc', CHILD_URL.'/lib/js/jquery.fc.js', array('jquery', 'flexslider', 'responsive-nav'), '1.0', true );
     wp_enqueue_script( 'fc' );
-
-    // #todo - add randmoizer for nonce
-    wp_localize_script( 'fc', 'FC_Ajax', array(
+   
+    // $todo - add ransomizer for nonce
+    wp_localize_script( 'flashcards-ajax', 'flashcardsAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'action' => AJAX_ACTION,
-        'nonce' => wp_create_nonce( AJAX_ACTION ),
+        'action' => 'fc_ajaxin-it',
+        'nonce' => wp_create_nonce( 'fc_ajaxin-it' ),
     ));
 
 }
