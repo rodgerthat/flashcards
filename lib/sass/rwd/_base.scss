@@ -37,23 +37,18 @@ a.instruction {
 
 #main-nav {
     width: 100%;
-    text-align: center;
 }
 
 .menu {
     li {
         a {
+            background: #FFF;
+            display: block;
+            width: 90%;
             cursor: pointer;
             padding: 0.5rem 0;
-            display: block;
             border-bottom: 1px #EEE solid;
             margin: 0 5%;
-            width: 90%;
-
-            &:hover {
-                color: #EEE;
-                text-decoration: none;
-            }
         }
     }
 }

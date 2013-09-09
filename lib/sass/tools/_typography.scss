@@ -77,6 +77,15 @@ $redonkulous-bold:  1000; // o rly? nope.
 
 
 //////////////////////
+// COMPASS CONFIG
+//////////////////////
+
+$default-text-shadow-color: rgba(#000, 0.69);
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
+
+
+//////////////////////
 // ROOT
 //////////////////////
 
@@ -99,11 +108,12 @@ body {
 //////////////////////
 
 a, a:visited {
+    color: $black;
     text-decoration: none;
 }
 
 a:hover, a:focus {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -192,7 +202,22 @@ h9, .h9 {
 // NAVIGATION
 //////////////////////
 
+#main-nav {
+    text-align: center;
+}
 
+.menu {
+    li {
+        a {
+
+            &:hover {
+                color: #EEE;
+                @include single-text-shadow;
+
+            }
+        }
+    }
+}
 
 //////////////////////
 // FLASH CARDS
