@@ -17,7 +17,9 @@ output_style = :expanded
 # project resources
 http_path = "/"
 http_images_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/lib/img/"
+http_fonts_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/lib/fonts/"
 css_dir = "/"
 sass_dir = "lib/sass"
 images_dir = "lib/img"
+fonts_dir = "lib/fonts"
 javascripts_dir = "lib/js"

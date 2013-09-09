@@ -21,10 +21,10 @@ function fc_enqueue_scripts() {
     wp_enqueue_script( 'fc' );
    
     // $todo - add ransomizer for nonce
-    wp_localize_script( 'flashcards-ajax', 'flashcardsAjax', array(
+    wp_localize_script( 'fc', 'FC_Ajax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'action' => 'fc_ajaxin-it',
-        'nonce' => wp_create_nonce( 'fc_ajaxin-it' ),
+        'action' => AJAX_ACTION,
+        'nonce' => wp_create_nonce( AJAX_ACTION ),
     ));
 
 }
