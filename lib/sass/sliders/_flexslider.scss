@@ -9,19 +9,22 @@
  * Contributing author: Tyler Smith (@mbmufffin)
  */
 
+// #todo - vendor-prefix hunt. supplement w/ compass
 
 // Browser Resets
 //////////////////////////////////
+
 .flex-container a:active,
 .flexslider a:active,
 .flex-container a:focus,
-.flexslider a:focus  {outline: none;}
+.flexslider a:focus  { outline: none; }
 .slides,
 .flex-control-nav,
-.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+.flex-direction-nav { margin: 0; padding: 0; list-style: none; }
 
 // Icon Fonts
 //////////////////////////////////
+
 /* Font-face Icons */
 @font-face {
 	font-family: 'flexslider-icon';
@@ -36,6 +39,7 @@
 
 // FlexSlider Necessary Styles
 //////////////////////////////////
+
 .flex-wrap {
     // flexi-wrap? you go to far. flexi-slider? surely you jest.
     position: fixed;
@@ -47,9 +51,9 @@
 }
 
 .flex-container{
-    width: 90%;
+    width: 100%;
     height: 87%;
-    padding: 9% 5%;
+    padding: 9% 0;
 }
 
 .flexslider {
@@ -94,7 +98,8 @@ html[xmlns] .slides { display: block; }
 .no-js .slides > li:first-child {display: block;}
 
 // FlexSlider Default Theme
-//////////////////////////////////
+///////////////////////////
+
 .flexslider {
     margin: 0 0 60px;
     position: relative;
@@ -121,15 +126,21 @@ html[xmlns] .slides { display: block; }
 .loading { background: image-url("fs/pac-ajax-loader.gif") no-repeat center; }
 
 // Direction Nav
+////////////////
+
 .flex-direction-nav {
 
     *height: 0;
+    position: fixed;
+    width: 100%;
+    bottom: 20%;
+    //height: 10%;
 
     a  {
+        line-height: 50px;
         display: block;
-        width: 40px;
-        height: 40px;
-        margin: -20px 0 0;
+        width: 50px;
+        height: 50px;
         position: absolute;
         top: 50%;
         z-index: 10;
@@ -141,10 +152,11 @@ html[xmlns] .slides { display: block; }
         -webkit-transition: all .3s ease;
         -moz-transition: all .3s ease;
         transition: all .3s ease;
+        text-align: center;
     }
 
-    .flex-prev { left: -50px; }
-    .flex-next { right: -50px; text-align: right; }
+    .flex-prev { left: 0; }
+    .flex-next { right: 0; }
 
     .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
 
@@ -153,8 +165,8 @@ html[xmlns] .slides { display: block; }
 }
 
 .flexslider:hover {
-    .flex-prev { opacity: 0.7; left: 10px; }
-    .flex-next { opacity: 0.7; right: 10px; }
+    .flex-prev { opacity: 0.7; }
+    .flex-next { opacity: 0.7; }
     .flex-next:hover,
     .flexslider:hover
     .flex-prev:hover {
@@ -194,6 +206,8 @@ html[xmlns] .slides { display: block; }
 
 
 // Control Nav
+//////////////
+
 .flex-control-nav {
 
     width: 100%;
@@ -254,12 +268,12 @@ html[xmlns] .slides { display: block; }
         opacity: .7;
         cursor: pointer;
 
-        &:hover {opacity: 1;}
+        &:hover { opacity: 1; }
     }
-    .flex-active {opacity: 1; cursor: default;}
+    .flex-active { opacity: 1; cursor: default; }
 }
 
 @media screen and (max-width: 860px) {
-  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
-  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
+  .flex-direction-nav .flex-prev { opacity: 1; }
+  .flex-direction-nav .flex-next { opacity: 1; }
 }

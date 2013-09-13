@@ -44,11 +44,11 @@ a.instruction {
         a {
             background: #FFF;
             display: block;
-            width: 90%;
+            width: 100%;
             cursor: pointer;
             padding: 0.5rem 0;
             border-bottom: 1px #EEE solid;
-            margin: 0 5%;
+            margin: 0;
         }
     }
 }
@@ -138,23 +138,6 @@ a.instruction {
     //height: 90%;
     //width: 90%;
     //padding: 5%;
-}
-
-.flex-direction-nav {
-    position: fixed;
-    width: 90%;
-    bottom: 10%;
-    height: 10%;
-
-    a {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        line-height: 50px;
-    }
-
-    .flex-prev { left: 0; }
-    .flex-next { right: 0; }
 }
 
 
