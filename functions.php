@@ -129,6 +129,7 @@ function fc_do_ajax() {
             global $post;
 
             // place postdata in an array for return
+            // #todo - run a check to see if the_content() is empty, then use the title.
             $flashcards[] = $post->post_title;
         }
     } else {
