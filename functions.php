@@ -4,6 +4,8 @@
  *
  */
 
+#todo - standardize nomenclature stick w/ flexslider "slider" base.
+
 
 // REGISTER CHILD THEME //////////////////////////////////
 
@@ -65,6 +67,7 @@ function fc_generate_menu() {
 
     }
 
+    $menu .= '<li><a class="randomizer" data-termSlug="instructions">Randomize</a></li>';
     $menu .= '<li><a class="instructions" data-termSlug="instructions">Instructions</a></li>';
     $menu .= '<li><a class="admin" data-termSlug="admin" href="'.wp_login_url().'">Login</a></li>';
     $menu .= '</ul>';
