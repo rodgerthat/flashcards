@@ -51,7 +51,6 @@ a.instruction {
 .menu {
     li {
         a {
-            background: #FFF;
             display: block;
             width: 100%;
             cursor: pointer;
@@ -61,6 +60,8 @@ a.instruction {
         }
     }
 }
+
+.shuffle, .admin, .instructions { background-color: #FFF; }
 
 /*! responsive-nav.js v1.0.20 by @viljamis */
 
@@ -150,7 +151,7 @@ a.instruction {
 }
 
 
-//////////////////////
+////////////////////////
 // BLACKBOX DEBUG BAR
 //////////////////////
 

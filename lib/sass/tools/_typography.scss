@@ -21,6 +21,24 @@ $white:             #fff; // FFF == 255,255,255
 $bones-pink:        #f01d4f; // a memorial for eddie.
 $fuchsia:           #ff00ff; // the fuchsia is N0W.
 
+$red:               #FF0000;
+$orange:            #FF681F;
+$yellow:            #FFFF00;
+$green:             #FFFF00;
+$blue:              #0000FF;
+$purple:            #660099;
+
+
+////////////////////////
+// COLOR CLASSES
+//////////////////////
+
+.red { background-color: $red; }
+.orange { background-color: $orange; }
+.yellow { background-color: $yellow; }
+.blue { background-color: $blue; }
+
+
 //////////////////////
 // FONT FAMILIES
 //////////////////////
@@ -240,16 +258,15 @@ h9, .h9 {
     }
 }
 
-//////////////////////
+////////////////////////
 // FLASH CARDS
 //////////////////////
 
 
 
-//////////////////////
+////////////////////////
 // FOOTER
 //////////////////////
-
 
 
 

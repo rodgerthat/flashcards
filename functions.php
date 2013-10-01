@@ -63,11 +63,11 @@ function fc_generate_menu() {
 
     foreach ( $terms as $term ) {
 
-        $menu .= '<li><a class="select-group" data-termSlug="'.$term->slug.'">'.$term->name.'</a></li>';
+        $menu .= '<li><a class="select-group '.$term->slug.'" data-termSlug="'.$term->slug.'">'.$term->name.'</a></li>';
 
     }
 
-    $menu .= '<li><a class="randomizer" data-termSlug="instructions">Randomize</a></li>';
+    $menu .= '<li><a class="shuffle" data-termSlug="shuffle">Shuffle</a></li>';
     $menu .= '<li><a class="instructions" data-termSlug="instructions">Instructions</a></li>';
     $menu .= '<li><a class="admin" data-termSlug="admin" href="'.wp_login_url().'">Login</a></li>';
     $menu .= '</ul>';
