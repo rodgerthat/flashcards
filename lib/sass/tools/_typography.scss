@@ -24,7 +24,7 @@ $fuchsia:           #ff00ff; // the fuchsia is N0W.
 $red:               #FF0000;
 $orange:            #FF681F;
 $yellow:            #FFFF00;
-$green:             #FFFF00;
+$green:             #00FF00;
 $blue:              #0000FF;
 $purple:            #660099;
 
@@ -33,11 +33,12 @@ $purple:            #660099;
 // COLOR CLASSES
 //////////////////////
 
-.red { background-color: $red; }
-.orange { background-color: $orange; }
-.yellow { background-color: $yellow; }
-.blue { background-color: $blue; }
-
+.red {      background-color: $red; }
+.orange {   background-color: $orange; }
+.yellow {   background-color: $yellow; }
+.green {    background-color: $green; }
+.blue {     background-color: $blue; }
+.purple {   background-color: $purple; }
 
 //////////////////////
 // FONT FAMILIES

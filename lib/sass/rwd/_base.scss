@@ -61,7 +61,17 @@ a.instruction {
     }
 }
 
-.shuffle, .admin, .instructions { background-color: #FFF; }
+.admin {
+    background: image-url("settings.png") no-repeat center left, image-url("settings.png") no-repeat center right, $white;
+}
+
+.shuffle {
+    background: image-url("shuffle.png") no-repeat center left, image-url("shuffle.png") no-repeat center right, $white;
+}
+
+.instructions {
+    background: image-url("instructions.gif") no-repeat center left, image-url("instructions.gif") no-repeat center right, $white;
+}
 
 /*! responsive-nav.js v1.0.20 by @viljamis */
 
