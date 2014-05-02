@@ -21,6 +21,25 @@ $white:             #fff; // FFF == 255,255,255
 $bones-pink:        #f01d4f; // a memorial for eddie.
 $fuchsia:           #ff00ff; // the fuchsia is N0W.
 
+$red:               #FF0000;
+$orange:            #FF681F;
+$yellow:            #FFFF00;
+$green:             #00FF00;
+$blue:              #0000FF;
+$purple:            #660099;
+
+
+////////////////////////
+// COLOR CLASSES
+//////////////////////
+
+.red {      background-color: $red; }
+.orange {   background-color: $orange; }
+.yellow {   background-color: $yellow; }
+.green {    background-color: $green; }
+.blue {     background-color: $blue; }
+.purple {   background-color: $purple; }
+
 //////////////////////
 // FONT FAMILIES
 //////////////////////
@@ -49,14 +68,14 @@ $serif:              "Georgia", Cambria, Times New Roman, Times, serif; // ode t
 //    font-style: normal;
 //}
 
+// YOSHI
+@font-face {
+    font-family: 'Yoshi';
+    src: font-url("yoshisst.ttf") format("truetype");
 
-// use the best ampersand
-// http://simplebits.com/notebook/2008/08/14/ampersands-2/
-
-span.amp {
-    font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
-    font-style: italic;
 }
+
+$yoshi: 'Yoshi', sans-serif;
 
 
 //////////////////////
@@ -74,6 +93,36 @@ $bold:              700;
 $extra-bold:        800;
 $ultra-bold:        900;
 $redonkulous-bold:  1000; // o rly? nope.
+
+
+
+//////////////////////
+// FONT CLASSES
+//////////////////////
+
+// class to add dynamically
+.yoshi {
+    font: {
+        family: $yoshi;
+        weight: $normal;
+    }
+}
+
+// use the best ampersand // http://simplebits.com/notebook/2008/08/14/ampersands-2/
+
+span.amp {
+    font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
+    font-style: italic;
+}
+
+
+//////////////////////
+// COMPASS CONFIG
+//////////////////////
+
+$default-text-shadow-color: rgba(#000, 0.69);
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
 
 
 //////////////////////
@@ -99,11 +148,12 @@ body {
 //////////////////////
 
 a, a:visited {
+    color: $black;
     text-decoration: none;
 }
 
 a:hover, a:focus {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -112,7 +162,7 @@ a:hover, a:focus {
 //////////////////////
 ::-moz-selection,
 ::selection {
-
+    background-color: transparent;
 }
 
 
@@ -192,18 +242,32 @@ h9, .h9 {
 // NAVIGATION
 //////////////////////
 
+#main-nav {
+    text-align: center;
+}
 
+.menu {
+    li {
+        a {
 
-//////////////////////
+            &:hover {
+                color: #EEE;
+                @include single-text-shadow;
+
+            }
+        }
+    }
+}
+
+////////////////////////
 // FLASH CARDS
 //////////////////////
 
 
 
-//////////////////////
+////////////////////////
 // FOOTER
 //////////////////////
-
 
 
 

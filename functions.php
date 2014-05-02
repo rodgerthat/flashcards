@@ -4,29 +4,29 @@
  *
  */
 
+#todo - standardize nomenclature stick w/ flexslider "slider" base.
+
 
 // REGISTER CHILD THEME //////////////////////////////////
 
-define( 'CHILD_THEME_NAME', 'Flash Cards' );
-define( 'CHILD_THEME_SLUG', 'flashcards' );
-define( 'CHILD_THEME_URL', 'http://127.0.0.1:8080/wordpress/' );
-define( 'CHILD_URL', get_stylesheet_directory_uri() );
-define( 'CHILD_DIR', get_stylesheet_directory() );
+define( 'THEME_NAME', 'Flash Cards' );
+define( 'THEME_SLUG', 'flashcards' );
+define( 'THEME_URL', get_stylesheet_directory_uri() );
+define( 'THEME_DIR', get_stylesheet_directory() );
 
 define( 'AJAX_ACTION', 'fc_ajaxin-it' );
 
 // INCLUDES //////////////////////////////////////
 
-include_once( CHILD_DIR . '/lib/cpts/flashcards.php' ); // CPT & CT for flashcards
+include_once( THEME_DIR . '/lib/cpts/flashcards.php' ); // CPT & CT for flashcards
 
-include_once( CHILD_DIR . '/lib/admin.php' ); // custom login / admin
+include_once( THEME_DIR . '/lib/admin.php' ); // custom login / admin
 
-include_once( CHILD_DIR . '/lib/scripts.php' ); // register / enqueue | scripts / styles
+include_once( THEME_DIR . '/lib/scripts.php' ); // register / enqueue | scripts / styles
 
 // CLASSES ///////////////////////////////////////////
 
-//include_once( CHILD_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
-
+//include_once( THEME_DIR . '/classes/class-fc-ajax.php' ); // fc-ajax class
 
 // MENU GENERATOR ///////////////////////////////////////////
 
@@ -62,10 +62,11 @@ function fc_generate_menu() {
 
     foreach ( $terms as $term ) {
 
-        $menu .= '<li><a class="select-group" data-termSlug="'.$term->slug.'">'.$term->name.'</a></li>';
+        $menu .= '<li><a class="select-group '.$term->slug.'" data-termSlug="'.$term->slug.'">'.$term->name.'</a></li>';
 
     }
 
+    $menu .= '<li><a class="shuffle" data-termSlug="shuffle">Shuffle</a></li>';
     $menu .= '<li><a class="instructions" data-termSlug="instructions">Instructions</a></li>';
     $menu .= '<li><a class="admin" data-termSlug="admin" href="'.wp_login_url().'">Login</a></li>';
     $menu .= '</ul>';
@@ -130,6 +131,7 @@ function fc_do_ajax() {
             global $post;
 
             // place postdata in an array for return
+            // #todo - run a check to see if the_content() is empty, then use the title.
             $flashcards[] = $post->post_title;
         }
     } else {
@@ -151,5 +153,4 @@ function fc_do_ajax() {
     // IMPORTANT : don't forget to 'exit'
     exit;
 }
-
 

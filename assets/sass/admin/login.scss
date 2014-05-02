@@ -19,7 +19,16 @@ http://codex.wordpress.org/Creating_Admin_Themes
 // PARTIALS
 /////////////////////
 
-@import "../tools/_mixins.scss";
+@import "../tools/mixins";
+
+
+//////////////////////
+// COMPASS CONFIG
+//////////////////////
+
+$default-text-shadow-color: rgba(#000, 0.69);
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
 
 
 ////////////////////
@@ -46,12 +55,23 @@ body.login {}
 // wp logo
 .login h1 a {
     //background: image-url("logo.png") no-repeat top center;
-    background: image-url("login-logo.png") no-repeat top center; // make sure to replace this!
+    //background: image-url("login-logo.png") no-repeat top center; // make sure to replace this!
+    //@include image-replacement;
+    background-image: none;
     width: 326px;
     height: 67px;
     padding-bottom: 15px;
     display: block;
-    @include image-replacement;
+    line-height: 67px;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    color: #000;
+
+    &:hover {
+        color: #EEE;
+        @include single-text-shadow;
+    }
 }
 
 form {
