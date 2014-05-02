@@ -8,7 +8,7 @@
     var flexsliderWidth;    // container for flexslider's height value
     var flexsliderHeight;   // container for flexslider's width value
     var slides;             // container for flexslider slides
-    var randomSlides;       // container for randomized slides
+    var randomSlides;       // container for shuffled slides
     var menu;               // container for responsive nav
     var instructionSlides;  // container for instruction slides // #todo - setup a flashcard group for instructions, pull on init, load into dom before flexslider in instantiated.
     var $window = $(window); // from the window , to the walls...
@@ -50,7 +50,7 @@
             slideshowSpeed: 7000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
             animationSpeed: 700,            //Integer: Set the speed of animations, in milliseconds
             initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
-            randomize: false,               //Boolean: Randomize slide order
+            shuffle: false,               //Boolean: Randomize slide order
             // Usability features
             pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
             pauseOnHover: true,             //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
@@ -191,7 +191,7 @@
 
     // RANDOMIZESLIDES
     //////////////////
-    function randomizeSlides() {
+    function shuffleSlides() {
         // @url : http://stackoverflow.com/questions/4511652/looping-through-list-items-with-jquery
 
         console.log("======================");
@@ -216,22 +216,23 @@
         });
 
         console.log("===========================");
-        console.log("flashcards to be randomized");
+        console.log("flashcards to be shuffled");
         console.log(flashcards);
         flashcards = shuffle(flashcards); // shuffle
         clearSlider(); // empty
         buildSlider(flashcards); // fill
     }
 
-    $(".randomizer").click(function(){
+    $(".shuffle").click(function(){
         event.preventDefault();
         menu.toggle(); // close menu
-        randomizeSlides(); // mix 'em up
+        shuffleSlides(); // mix 'em up
     });
 
     // SHUFFLE
     //////////
     function shuffle(array) {
+        // this was a new one for me, i've never seen js liek that.
         var currentIndex = array.length
             , temporaryValue
             , randomIndex

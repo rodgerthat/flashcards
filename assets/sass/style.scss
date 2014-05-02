@@ -1,11 +1,11 @@
 /**!
 Theme Name: Flash Cards
 Theme URI: http://127.0.0.1:8080/wordpress
-Description: Simple flashcards program. used for sight words
+Description: Simple flashcards web app. Used for sight words
 Author: joelrnorris
 Author URI: http://joelrnorris.com
 Version: 1.0
-Tags: mobile, application, flexslider, html5, sass,
+Tags: mobile, application, flexslider, html5, sass, css3
 License: WTFv2
 License URI: http://icanhazip.com
 
@@ -60,18 +60,18 @@ $zen-grids-green:   rgba(44,144,44,0.69);
 // BASE STYLES
 ///////////////////////////////////////////////////////////////////
 
-@import "tools/_functions.scss";
-@import "tools/_mixins.scss";
+@import "tools/functions";
+@import "tools/mixins";
 
 @import "normalize"; // normalize it
-@import "tools/_zeros.scss";
-@import "tools/_clearfix.scss";
+@import "tools/zeros";
+@import "tools/clearfix";
 
-@import "tools/_typography.scss";
+@import "tools/typography";
 
-@import "sliders/_flexslider.scss";
+@import "sliders/flexslider";
 
-@import "rwd/_base.scss";
+@import "rwd/base";
 
 
 ///////////////////////////////////////////////////////////////////

@@ -16,10 +16,10 @@ output_style = :expanded
 
 # project resources
 http_path = "/"
-http_images_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/lib/img/"
-http_fonts_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/lib/fonts/"
+http_images_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/assets/img/"
+http_fonts_path = "http://162.209.72.179/flashcards/wp-content/themes/flashcards/assets/fonts/"
 css_dir = "/"
-sass_dir = "lib/sass"
-images_dir = "lib/img"
-fonts_dir = "lib/fonts"
-javascripts_dir = "lib/js"
+sass_dir = "assets/sass"
+images_dir = "assets/img"
+fonts_dir = "assets/fonts"
+javascripts_dir = "assets/js"
