@@ -162,26 +162,98 @@ a.instruction {
 
 
 ////////////////////////
-// BLACKBOX DEBUG BAR
+// ADMIN MENU
 //////////////////////
 
-#blackbox-web-debug { display: none; }
+#admin-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9001; // OVER 9000
+    margin: 2% 0 0 2%; // marginal margins. lolz.
+}
+
+// #todo - this is soaking get. needs drying.
+.login_button {
+    @include image-replacement;
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background: transparent image-url("login_icon.png") no-repeat center;
+    margin-right: 10px;
+
+}
+
+.add_new_card_button {
+    @include image-replacement;
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background: transparent image-url("add_card_icon.png") no-repeat center;
+    margin-right: 10px;
+}
+
+.add_new_group_button {
+    @include image-replacement;
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background: transparent image-url("add_group_icon.png") no-repeat center;
+    margin-right: 10px;
+}
+
+form#add_new_card {
+    display: none;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 10%;
+    padding: 27px;
+    width: 350px;
+    z-index: 999;
+    left: 3%;
+    border: 3px solid black;
+    border-radius: 10px;
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    label {
+        width: 101px;
+        display: inline-block;
+    }
+}
 
 
 ////////////////////////
 // LOGIN FORM
 //////////////////////
 
+#login {
+    li {
+        margin-bottom: 10px;
+    }
+
+    label {
+        width: 50px;
+        display: inline-block;
+    }
+}
+
 form#login{
     display: none;
     background-color: #FFFFFF;
     position: fixed;
-    top: 200px;
-    padding: 40px 25px 25px 25px;
+    top: 10%;
+    padding: 27px;
     width: 350px;
     z-index: 999;
-    left: 50%;
-    margin-left: -200px;
+    left: 3%;
+    border: 3px solid black;
+    border-radius: 10px;
 }
 
 form#login p.status{
@@ -197,33 +269,27 @@ form#login p.status{
     z-index: 998;
 }
 
-.login_button {
-    position: relative;
-    z-index: 1000;
+.lost {
+    display: block;
+    float: left;
+    color: blue;
+    width: 220px;
+
+    :visited {
+        color: blue;
+    }
 }
+
+.close {
+    float: right;
+}
+
+
 
 
 ////////////////////////
-// POST BUTTONS & FORM
+// BLACKBOX DEBUG BAR
 //////////////////////
 
-.add_new_card_button {
-
-    position: relative;
-    z-index: 1000;
-}
-
-.add_new_group_button {
-
-    position: relative;
-    z-index: 1000;
-}
-
-#add_new_card {
-
-
-    position: relative;
-    z-index: 1000;
-}
-
+#blackbox-web-debug { display: none; }
 

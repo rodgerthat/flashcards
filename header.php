@@ -24,19 +24,30 @@
     <?php wp_head(); ?>
 </head>
 <body>
+<div id="admin-menu">
 <?php
 // if user not logged in, output login form
 if ( !is_user_logged_in() ) : ?>
     <form id="login" action="login" method="post">
-        <h1>Login</h1>
+        <h2>Loggin'</h2>
         <p class="status"></p>
-        <label for="username">Username</label>
-        <input id="username" type="text" name="username">
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password">
-        <a class="lost" href="<?php echo wp_lostpassword_url(); ?>">OH NOES i lost my pwd</a>
-        <input class="submit_button" type="submit" value="Login" name="submit">
-        <a class="close" href="">(close)</a>
+        <ul>
+            <li>
+                <label for="username">USR</label>
+                <input id="username" type="text" name="username">
+            </li>
+            <li>
+                <label for="password">PWD</label>
+                <input id="password" type="password" name="password">
+            </li>
+            <li>
+                <input class="submit_button" type="submit" value="DO IT" name="submit">
+            </li>
+            <li>
+                <a class="lost" href="<?php echo wp_lostpassword_url(); ?>">OH NOES i lost my pwd</a>
+                <a class="close" href="">(bail)</a>
+            </li>
+        </ul>
         <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
     </form>
 <?php endif ?>
@@ -51,20 +62,32 @@ if ( !is_user_logged_in() ) : ?>
 <?php endif; ?>
 <?php if (is_user_logged_in()) : ?>
     <form id="add_new_card" action="add_new_card" method="post">
-        <label for="card_title">Card Title</label>
-        <input id="card_title" type="text" name="card_title">
-        <label for="card_group">Card Group</label>
-        <select id="card_group" name="card_group">
-        <option value="none" selected="selected">None</option>
-        <?php $groups = get_groups();
-            foreach ( $groups as $group ) {
-                echo '<option class="select-group '.$group->slug.'" data-termSlug="'.$group->slug.'">'.$group->name.'</option>';
-            }
-        ?>
-        </select>
-        <input id="add_new_card_submit" class="submit_button" type="submit" value="Add New Card" name="add_new_card">
+        <h2>Add New Card</h2>
+        <p class="status"></p>
+        <ul>
+            <li>
+                <label for="card_title">Card Title</label>
+                <input id="card_title" type="text" name="card_title">
+            </li>
+            <li>
+                <label for="card_group">Card Group</label>
+                <select id="card_group" name="card_group">
+                    <option value="none" selected="selected">None</option>
+                    <?php $groups = get_groups();
+                    foreach ( $groups as $group ) {
+                        echo '<option class="select-group '.$group->slug.'" data-termSlug="'.$group->slug.'">'.$group->name.'</option>';
+                    }
+                    ?>
+                </select>
+            </li>
+            <li>
+                <input id="add_new_card_submit" class="submit_button" type="submit" value="DO IT" name="add_new_card">
+                <a class="close" href="">(bail)</a>
+            </li>
+        </ul>
     </form>
 <?php endif; ?>
+</div>
 <header>
 
     <nav id="main-nav">

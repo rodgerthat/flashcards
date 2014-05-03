@@ -184,6 +184,7 @@ function fc_do_ajax() {
             'post_category' => '',          // array('category_id') // Default empty.
             'tags_input' => '',             // '<tag>, <tag>' or array() // Default empty.
             'tax_input' => array( 'groups' => $card_group ), // array( 'taxonomy' => <array | string> ) ] // For custom taxonomies. Default empty.
+            // #todo-joel : you left off here, this doesn't add it to a group toolbox. read le codex.
             'page_template' => '',          // [ <string> ] // Default empty.
         );
 
@@ -203,7 +204,7 @@ function fc_do_ajax() {
         } elseif ( $returned_post_id == 0 ) {
             $response = json_encode( array( 'success' => false, 'error' => 'PHAIL : card not added' ) );
         } else {
-            $response = json_encode( array( 'success' => true, 'cardData' => $cardData ) );
+            $response = json_encode( array( 'success' => true, 'message' => 'New FlashCard Added!', 'cardData' => $cardData ) );
         }
 
         // response output

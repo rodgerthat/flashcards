@@ -638,19 +638,80 @@ header {
   display: table-cell;
   vertical-align: middle; }
 
-#blackbox-web-debug {
-  display: none; }
+#admin-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9001;
+  margin: 2% 0 0 2%; }
+
+.login_button {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  background: transparent url('http://162.209.72.179/flashcards/wp-content/themes/flashcards/assets/img/login_icon.png?1399075428') no-repeat center;
+  margin-right: 10px; }
+
+.add_new_card_button {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  background: transparent url('http://162.209.72.179/flashcards/wp-content/themes/flashcards/assets/img/add_card_icon.png?1399112352') no-repeat center;
+  margin-right: 10px; }
+
+.add_new_group_button {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  background: transparent url('http://162.209.72.179/flashcards/wp-content/themes/flashcards/assets/img/add_group_icon.png?1399112352') no-repeat center;
+  margin-right: 10px; }
+
+form#add_new_card {
+  display: none;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 10%;
+  padding: 27px;
+  width: 350px;
+  z-index: 999;
+  left: 3%;
+  border: 3px solid black;
+  border-radius: 10px; }
+  form#add_new_card li {
+    margin-bottom: 10px; }
+  form#add_new_card label {
+    width: 101px;
+    display: inline-block; }
+
+#login li {
+  margin-bottom: 10px; }
+#login label {
+  width: 50px;
+  display: inline-block; }
 
 form#login {
   display: none;
   background-color: #FFFFFF;
   position: fixed;
-  top: 200px;
-  padding: 40px 25px 25px 25px;
+  top: 10%;
+  padding: 27px;
   width: 350px;
   z-index: 999;
-  left: 50%;
-  margin-left: -200px; }
+  left: 3%;
+  border: 3px solid black;
+  border-radius: 10px; }
 
 form#login p.status {
   display: none; }
@@ -663,21 +724,19 @@ form#login p.status {
   position: fixed;
   z-index: 998; }
 
-.login_button {
-  position: relative;
-  z-index: 1000; }
+.lost {
+  display: block;
+  float: left;
+  color: blue;
+  width: 220px; }
+  .lost :visited {
+    color: blue; }
 
-.add_new_card_button {
-  position: relative;
-  z-index: 1000; }
+.close {
+  float: right; }
 
-.add_new_group_button {
-  position: relative;
-  z-index: 1000; }
-
-#add_new_card {
-  position: relative;
-  z-index: 1000; }
+#blackbox-web-debug {
+  display: none; }
 
 @media print {
   * {

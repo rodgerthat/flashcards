@@ -301,6 +301,20 @@
         e.preventDefault();
     });
 
+    // ADD NEW CARD FORM
+    ////////////////////
+
+    // Show the login dialog box on click
+    $('a.add_new_card_button').on('click', function(e){
+        $('body').prepend('<div class="login_overlay"></div>');
+        $('form#add_new_card').fadeIn(500);
+        $('div.login_overlay, form#add_new_card a.close').on('click', function(){
+            $('div.login_overlay').remove();
+            $('form#add_new_card').hide();
+        });
+        e.preventDefault();
+    });
+
     // ADD NEW CARD
     ///////////////
     $("#add_new_card_submit").on('click', function(e){
@@ -320,7 +334,13 @@
             },
             // once you hear back
             function( response ) {
+
                 console.log( response );
+
+                $('form#add_new_card p.status').text(response.message);
+
+                if (response.success == true) {
+                }
 
             }
         )
