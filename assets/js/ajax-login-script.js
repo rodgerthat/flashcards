@@ -1,24 +1,9 @@
 /**
- *
- * Created by joelrnorris on 5/2/14.
+ * Ajax Login Script
  */
 
-jQuery(document).ready(function($) {
 
-    // LOGIN FORM
-    /////////////
-
-    // Show the login dialog box on click
-    $('a#show_login').on('click', function(e){
-        console.log('login clicked');
-        $('body').prepend('<div class="login_overlay"></div>');
-        $('form#login').fadeIn(500);
-        $('div.login_overlay, form#login a.close').on('click', function(){
-            $('div.login_overlay').remove();
-            $('form#login').hide();
-        });
-        e.preventDefault();
-    });
+(function($) {
 
     // LOGIN AJAX
     /////////////
@@ -45,4 +30,4 @@ jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-});
+}(jQuery));

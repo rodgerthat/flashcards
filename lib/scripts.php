@@ -27,4 +27,18 @@ function fc_enqueue_scripts() {
         'nonce' => wp_create_nonce( AJAX_ACTION ),
     ));
 
+    if (!is_user_logged_in()) {
+    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
+    wp_enqueue_script('ajax-login-script');
+
+    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'redirecturl' => home_url(),
+        'loadingmessage' => __('Sending user info, please wait...')
+    ));
+
+
+    }
+
 }
+

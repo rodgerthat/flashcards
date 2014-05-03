@@ -79,7 +79,7 @@ function fc_generate_menu() {
 // AJAX HANDLERS ///////////////////////////////////////////
 
 /**
- * AJAX
+ * FC Do Ajax
  *
  * @url : http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/
  * @url : http://codex.wordpress.org/AJAX_in_Plugins#Ajax_on_the_Viewer-Facing_Side
@@ -158,31 +158,11 @@ function fc_do_ajax() {
 
 // LOGIN AJAX ///////////////////////////////////////////
 /**
- * Ajax Login Init
+ * Ajax Login
  * @url : http://natko.com/wordpress-ajax-login-without-a-plugin-the-right-way/
  *
- * enqueue scripts for ajax login
+ * handle ajax login
  */
-function ajax_login_init(){
-
-    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
-    wp_enqueue_script('ajax-login-script');
-
-    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'redirecturl' => home_url(),
-        'loadingmessage' => __('Sending user info, please wait...')
-    ));
-
-    // Enable the user with no privileges to run ajax_login() in AJAX
-    add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
-}
-
-// Execute the action only if the user isn't logged in
-if (!is_user_logged_in()) {
-    add_action('init', 'ajax_login_init');
-}
-
 function ajax_login(){
 
     // First check the nonce, if it fails the function will break
@@ -203,4 +183,7 @@ function ajax_login(){
 
     die(); // so brutal, this php.
 }
+
+// Enable the user with no privileges to run ajax_login() in AJAX
+add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
 

@@ -663,6 +663,10 @@ form#login p.status {
   position: fixed;
   z-index: 998; }
 
+.login_button {
+  position: relative;
+  z-index: 1000; }
+
 @media print {
   * {
     background: transparent !important;
