@@ -301,6 +301,35 @@
         e.preventDefault();
     });
 
+    // ADD NEW CARD
+    ///////////////
+    $("#add_new_card_submit").on('click', function(e){
+
+        var cardData = true;
+
+        // send request
+        $.post(
+            FC_Ajax.ajaxurl,
+            {
+                // declare parameters w/ request, and action from Object
+                action : FC_Ajax.action,
+                cardData : cardData,
+                cardTitle : $("#card_title").val(), // pass in form values
+                cardGroup : $("#card_group").val(),
+                nonce : FC_Ajax.nonce
+            },
+            // once you hear back
+            function( response ) {
+                console.log( response );
+
+            }
+        )
+        e.preventDefault();
+
+    });
+
+
+
 }(jQuery));
 
 // FLEXSLIDER OBJECT

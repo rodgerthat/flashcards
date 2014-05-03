@@ -4,8 +4,8 @@ Theme URI: http://162.209.72.179/flashcards
 Description: Simple flashcards web app. Used for sight words
 Author: joelrnorris
 Author URI: http://joelrnorris.com
-Version: 1.1
-Tags: mobile, application, flexslider, html5, sass, css3
+Version: 1.2
+Tags: mobile, web application, flexslider, html5, sass, css3
 License: WTFv2
 License URI: http://icanhazip.com
 
@@ -664,6 +664,18 @@ form#login p.status {
   z-index: 998; }
 
 .login_button {
+  position: relative;
+  z-index: 1000; }
+
+.add_new_card_button {
+  position: relative;
+  z-index: 1000; }
+
+.add_new_group_button {
+  position: relative;
+  z-index: 1000; }
+
+#add_new_card {
   position: relative;
   z-index: 1000; }
 

@@ -101,59 +101,120 @@ function fc_do_ajax() {
 
     // do something asynchronous
 
-    // get submitted parameters
-    $termSlug = $_POST['termSlug'];
+    if (isset($_POST["termSlug"])) {
+        // get submitted parameters
+        $termSlug = $_POST['termSlug'];
 
-    // get all the flashcards in that group
-    $flashcards = array();
+        // get all the flashcards in that group
+        $flashcards = array();
 
-    // WP_Query arguments
-    $args = array (
-        'posts_per_page' => '-1',
-        'post_type'              => 'flashcards',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'groups',
-                'field' => 'slug',
-                'terms' => $termSlug
+        // WP_Query arguments
+        $args = array (
+            'posts_per_page' => '-1',
+            'post_type'              => 'flashcards',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'groups',
+                    'field' => 'slug',
+                    'terms' => $termSlug
+                )
             )
-        )
-    );
+        );
 
-    // The Query
-    $fc_query = new WP_Query( $args );
+        // The Query
+        $fc_query = new WP_Query( $args );
 
-    // The Loop
-    if ( $fc_query->have_posts() ) {
-        while ( $fc_query->have_posts() ) {
-            $fc_query->the_post();
-            // do something
-            global $post;
+        // The Loop
+        if ( $fc_query->have_posts() ) {
+            while ( $fc_query->have_posts() ) {
+                $fc_query->the_post();
+                // do something
+                global $post;
 
-            // place postdata in an array for return
-            // #todo - run a check to see if the_content() is empty, then use the title.
-            $flashcards[] = $post->post_title;
+                // place postdata in an array for return
+                // #todo - run a check to see if the_content() is empty, then use the title.
+                $flashcards[] = $post->post_title;
+            }
+        } else {
+            // no posts found
+            $flashcards[] = 'no flashcards found';
         }
-    } else {
-        // no posts found
-        $flashcards[] = 'no flashcards found';
+
+        // Restore original Post Data
+        wp_reset_postdata();
+
+        // generate the response
+        $response = json_encode( array( 'success' => true, 'termSlug' => $termSlug, 'flashcards' => $flashcards )  );
+
+        // response output
+        header( "Content-Type: application/json" );
+        //echo $postID;
+        echo $response; // anything echoed goes into the response body
+
+        // IMPORTANT : don't forget to 'exit'
+        exit;
     }
 
-    // Restore original Post Data
-    wp_reset_postdata();
+    if (isset($_POST["cardData"])) {
 
-    // generate the response
-    $response = json_encode( array( 'success' => true, 'termSlug' => $termSlug, 'flashcards' => $flashcards )  );
+        $card_title = $_POST["cardTitle"];
 
-    // response output
-    header( "Content-Type: application/json" );
-    //echo $postID;
-    echo $response; // anything echoed goes into the response body
+        $card_group = $_POST["cardGroup"];
 
-    // IMPORTANT : don't forget to 'exit'
-    exit;
+        $post = array(                      // post array
+            'ID' => false,                  // Are you updating an existing post?
+            'post_content' => '',           // The full text of the post.
+            'post_name' => '',              // The name (slug) for your post
+            'post_title' => $card_title,    // The title of your post.
+            'post_status' => 'publish',     // [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | custom registered status ] // Default 'draft'.
+            'post_type' => 'flashcards',    // [ 'post' | 'page' | 'link' | 'nav_menu_item' | custom post type ] // Default 'post'.
+            'post_author' => '',            // The user ID number of the author. Default is the current user ID.
+            'ping_status' => 'closed',      // [ 'closed' | 'open' ] // Pingbacks or trackbacks allowed. Default is the option 'default_ping_status'.
+            'post_parent' => '',            // Sets the parent of the new post, if any. Default 0.
+            'menu_order' => '',             // If new post is a page, sets the order in which it should appear in supported menus. Default 0.
+            'to_ping' => '',                // Space or carriage return-separated list of URLs to ping. Default empty string.
+            'pinged' => '',                 // Space or carriage return-separated list of URLs that have been pinged. Default empty string.
+            'post_password' => '',          // Password for post, if any. Default empty string.
+            'guid' => '',                   // Skip this and let Wordpress handle it, usually.
+            'post_content_filtered' => '',  // Skip this and let Wordpress handle it, usually.
+            'post_excerpt' => '',           // For all your post excerpt needs.
+            'post_date' => '',              // [ Y-m-d H:i:s ] // The time post was made.
+            'post_date_gmt' => '',          // [ Y-m-d H:i:s ] // The time post was made, in GMT.
+            'comment_status' => '',         // [ 'closed' | 'open' ] // Default is the option 'default_comment_status', or 'closed'.
+            'post_category' => '',          // array('category_id') // Default empty.
+            'tags_input' => '',             // '<tag>, <tag>' or array() // Default empty.
+            'tax_input' => array( 'groups' => $card_group ), // array( 'taxonomy' => <array | string> ) ] // For custom taxonomies. Default empty.
+            'page_template' => '',          // [ <string> ] // Default empty.
+        );
+
+        $returned_post_id = wp_insert_post( $post, true );
+
+        // generate the response
+        if ( is_object($returned_post_id) ) {
+            $response = json_encode(
+                array(
+                    'success' => false,
+                    'error' => 'wp_error',
+                    '$card_title' => $card_title,
+                    '$card_group' => $card_group,
+                    'wp_error' => $returned_post_id
+                )
+            );
+        } elseif ( $returned_post_id == 0 ) {
+            $response = json_encode( array( 'success' => false, 'error' => 'PHAIL : card not added' ) );
+        } else {
+            $response = json_encode( array( 'success' => true, 'cardData' => $cardData ) );
+        }
+
+        // response output
+        header( "Content-Type: application/json" );
+        //echo $postID;
+        echo $response; // anything echoed goes into the response body
+
+        // IMPORTANT : don't forget to 'exit'
+        exit;
+    }
 }
-
 
 
 // LOGIN AJAX ///////////////////////////////////////////
@@ -187,3 +248,33 @@ function ajax_login(){
 // Enable the user with no privileges to run ajax_login() in AJAX
 add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
 
+
+function get_groups() {
+
+    $taxonomy = 'groups';
+    $term_args = array(
+        'orderby'       => '',
+        'order'         => 'ASC',
+        'hide_empty'    => true,
+        'exclude'       => array(),
+        'exclude_tree'  => array(),
+        'include'       => array(),
+        'number'        => '',
+        'fields'        => 'all',
+        'slug'          => '',
+        'parent'         => '',
+        'hierarchical'  => true,
+        'child_of'      => 0,
+        'get'           => '',
+        'name__like'    => '',
+        'pad_counts'    => false,
+        'offset'        => '',
+        'search'        => '',
+        'cache_domain'  => 'core'
+    );
+
+    $terms = get_terms( $taxonomy );
+
+    return $terms;
+
+}

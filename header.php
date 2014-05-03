@@ -45,6 +45,26 @@ if ( !is_user_logged_in() ) : ?>
 <?php } else { ?>
     <a class="login_button" id="show_login" href="">Login</a>
 <?php } ?>
+<?php if (is_user_logged_in()) : ?>
+    <a class="add_new_card_button" href="">Add New Card</a>
+    <a class="add_new_group_button" href="">Add New Group</a>
+<?php endif; ?>
+<?php if (is_user_logged_in()) : ?>
+    <form id="add_new_card" action="add_new_card" method="post">
+        <label for="card_title">Card Title</label>
+        <input id="card_title" type="text" name="card_title">
+        <label for="card_group">Card Group</label>
+        <select id="card_group" name="card_group">
+        <option value="none" selected="selected">None</option>
+        <?php $groups = get_groups();
+            foreach ( $groups as $group ) {
+                echo '<option class="select-group '.$group->slug.'" data-termSlug="'.$group->slug.'">'.$group->name.'</option>';
+            }
+        ?>
+        </select>
+        <input id="add_new_card_submit" class="submit_button" type="submit" value="Add New Card" name="add_new_card">
+    </form>
+<?php endif; ?>
 <header>
 
     <nav id="main-nav">
