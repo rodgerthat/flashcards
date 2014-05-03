@@ -166,3 +166,33 @@ a.instruction {
 //////////////////////
 
 #blackbox-web-debug { display: none; }
+
+
+////////////////////////
+// LOGIN FORM
+//////////////////////
+
+form#login{
+    display: none;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 200px;
+    padding: 40px 25px 25px 25px;
+    width: 350px;
+    z-index: 999;
+    left: 50%;
+    margin-left: -200px;
+}
+
+form#login p.status{
+    display: none;
+}
+
+.login_overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #F6F6F6;
+    opacity: 0.9;
+    position: fixed;
+    z-index: 998;
+}

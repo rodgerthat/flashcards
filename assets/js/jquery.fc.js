@@ -262,6 +262,7 @@
 
     // #todo - add a function to the window.resize event & buildSlider() to check for words that are too long, and bump the font down.
 
+
 }(jQuery));
 
 // FLEXSLIDER OBJECT
